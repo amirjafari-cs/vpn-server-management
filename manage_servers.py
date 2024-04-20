@@ -18,7 +18,6 @@ DEFAULT_PLAN = 2101
 BANNER_TIMEOUT = 60
 RUNNING_STATUS = 'running' # The 'power' field in server object when its running
 MAX_DEL_WAIT = 11 # Maximum time to wait when trying to delete a server(in minutes)
-PK_PATH = './private_key.pem' # Path to private key
 TEMP_XUI_PATH = './x-ui.db' # Path to save x-ui.db on local machine temporary
 
 # Commands
@@ -34,6 +33,7 @@ def init_server(ex_server, server, ex_ppk_auth=True, ppk_auth=True): # servers a
     PANEL_USERNAME = os.getenv('PANEL_USERNAME')
     PANEL_PASSWORD = os.getenv('PANEL_PASSWORD')
     PANEL_PORT = os.getenv('PANEL_PORT')
+    PK_PATH = os.getenv('PK_PATH')
 
     # Get expired server and new server login creditional
     try:
