@@ -20,3 +20,4 @@ def run():
         schedule.run_pending()
         sleep(RUN_PENDING_WAIT)
 ```
+- Connecting to VPN servers has been done using SSH keys. Your private key should exist in the PK_PATH directory. (PK_PATH is the variable specified in the .env file.
