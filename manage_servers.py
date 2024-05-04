@@ -12,9 +12,6 @@ import os
 # Constant values
 DEL_WAIT = 10 # Wait DEL_WAIT seconds to delete a server after a failed attempt
 READY_WAIT = 5 # for each time checking if the server is ready wait READY_WAIT seconds
-DEFAULT_REGION = 209
-DEFAULT_IMAGE = 2114
-DEFAULT_PLAN = 2101
 BANNER_TIMEOUT = 60
 RUNNING_STATUS = 'running' # The 'power' field in server object when its running
 MAX_DEL_WAIT = 11 # Maximum time to wait when trying to delete a server(in minutes)
@@ -243,6 +240,11 @@ def create_server(name, region, image, plan, add_db):
 
 
 def create_default_server(name, add_db):
+    
+    load_dotenv()
+    DEFAULT_REGION = os.getenv('DEFAULT_REGION')
+    DEFAULT_IMAGE = os.getenv('DEFAULT_IMAGE')
+    DEFAULT_PLAN = os.getenv('DEFAULT_PLAN')
     
     return create_server(name, DEFAULT_REGION, DEFAULT_IMAGE, DEFAULT_PLAN, add_db)
 
